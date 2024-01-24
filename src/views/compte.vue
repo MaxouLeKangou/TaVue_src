@@ -1,8 +1,13 @@
 <script setup> 
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import { onMounted } from 'vue';
     import PocketBase from 'pocketbase'
-    const pb = new PocketBase("http://127.0.0.1:8090/");
+    const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE);
+
+    onMounted(()=>{
+        console.log(import.meta.env.VITE_URL_POCKETBASE)
+    });
 
     const router = useRouter()
     
